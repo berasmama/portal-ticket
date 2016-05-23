@@ -34,8 +34,34 @@
       <section id="main-content">
           <section class="wrapper">
               <div class="row">
-                  <div class="col-lg-9 main-chart">
-					<h1>List Menu</h1>
+                  <div class="col-lg-12 main-chart">
+				  <?php echo $_SESSION['notification']; $_SESSION['notification']=''; ?>
+				  <h1>List Menu
+						<div class="dropdown pull-right">
+						  <button class="btn btn-xs btn-default dropdown-toggle" type="button" data-toggle="dropdown">Add Submenu
+						  <span class="caret"></span></button>
+						  <ul class="dropdown-menu" style="padding:10px;">
+							  <div>
+								<form id="addSubmenu" action='engine/panel/submit-form-list-menu.php' method="post">
+									<input type="hidden" id="type" value="insert" name="type">
+									Title : <input type="text" id="title" name="title">
+									Icon : <input type="text" id="icon" name="icon">
+									Link : <input type="text" id="href" name="href">
+									Parent :
+									<select style="margin-bottom:5px;width:100%;" name="parent">
+									<?php
+										$parent = $select->getAll("navbar_menu");
+										foreach($parent as $data){
+											echo "<option value='".$data['id']."'>".$data['title']."</option>";
+										}
+									?>
+									</select>
+									<button class="btn btn-xs pull-right btn-success" onclick="addSubmenu()"><i class="fa fa-check"></i> submit</button>
+								</form>
+							  </div>
+						  </ul>
+						</div>
+					</h1>
 					<div class="table-responsive">          
 						<table class="table tree">
 							<thead>
@@ -50,11 +76,11 @@
 								<tr id="table-header-input" hidden>
 									<th width="30px"><button class='btn btn-danger btn-xs' onclick='cancelNew()'><i class='fa fa-times'></i></button></th>
 									<th>#</th>
-									<th><input type='text' value='' id='txt-new-title' placeholder="Title"></th>
-									<th><input type='text' value='' id='txt-new-icon' placeholder="Icon"></th>
-									<th><input type='text' value='' id='txt-new-href' placeholder="Link Location"></th>
+									<th><input type='text' value='' id='txt-menu-title' placeholder="Title"></th>
+									<th><input type='text' value='' id='txt-menu-icon' placeholder="Icon"></th>
+									<th><input type='text' value='' id='txt-menu-href' placeholder="Link Location"></th>
 									<th>
-										<button class='btn btn-success btn-xs' onclick=''><i class='fa fa-check'></i></button>
+										<button class='btn btn-success btn-xs' onclick="submitForm('menu','insert','')"><i class='fa fa-check'></i></button>
 									</th>
 								</tr>
 							</thead>
@@ -64,8 +90,13 @@
 								$listmenu = $select->getAll('navbar_menu');
 								foreach($listmenu as $data){
 									$listsub = $select->getChild('navbar_submenu','navbar_menu','id_parent','id',$data['id']);
+									if(count($listsub)==0){
+										$btnDelete = "<button class='btn btn-danger btn-xs' onclick='deleteMenu('menu', ".$data['id'].", 'delete')'><i class='fa fa-trash-o'></i></button>";
+									}else{
+										$btnDelete = "<div class='btn btn-danger btn-xs btn-disabled tooltips' data-placement='top' data-original-title='Cant Delete, This Menu has sub'><i class='fa fa-trash-o'></i></div>";
+									}
 									echo "<tr class='treegrid-".$data['id']."'>
-											<td width='5%'></td>
+											<td width='4%'></td>
 											<td width='4%'>".$numbering."</td>
 											<td width='26%' id='menu".$data['id']."-title'>".$data['title']."</td>
 											<td width='26%' id='menu".$data['id']."-icon'><i class='fa ".$data['icon']."'></i></td>
@@ -77,9 +108,9 @@
 											
 											<td id='menu".$data['id']."-action'>
 											  <button class='btn btn-primary btn-xs' onclick='editMenu(".$data['id'].")'><i class='fa fa-pencil'></i></button>
-											  <button class='btn btn-danger btn-xs' onclick='deleteMenu(".$data['id'].")'><i class='fa fa-trash-o'></i></button>
-											  <button class='btn btn-default btn-xs' onclick='addSubMenu(".$data['id'].")'><i class='fa fa-plus'></i></button>
+											  ".$btnDelete."
 											</td>
+											
 											<td width='13%' id='menu".$data['id']."-action-edit' hidden>
 											  <button class='btn btn-success btn-xs' onclick=";?>"submitForm('menu','edit',<?php echo $data['id'] ?>)"<?php echo "><i class='fa fa-check'></i></button>
 											  <button class='btn btn-danger btn-xs' onclick='cancelForm(".$data['id'].")'><i class='fa fa-times'></i></button>
@@ -113,9 +144,9 @@
 							?>
 							</tbody>
 						</table>
-					</div>	  
+					</div>	 
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
-                  </div><!-- /col-lg-3 -->
+				  
               </div><!--/row -->
           </section>
         </section>
@@ -152,6 +183,16 @@
 					});
 			$('.tree').treegrid('collapseAll');
 		});
+		
+		function deleteMenu(field, id, type){
+			document.getElementById("txt-menu-id-input").value = id;
+			document.getElementById("txt-menu-title-input").value = document.getElementById("txt-"+field+id+"-title").value;
+			document.getElementById("txt-menu-icon-input").value = document.getElementById("txt-"+field+id+"-icon").value;
+			document.getElementById("txt-menu-href-input").value = document.getElementById("txt-"+field+id+"-href").value;
+			document.getElementById("txt-menu-field-input").value = field;
+			document.getElementById("txt-menu-type-input").value = type;
+			$('form#submit-input-form').submit();
+		}
 		
 		function submitForm(field, type, id){
 			document.getElementById("txt-menu-id-input").value = id;
@@ -211,8 +252,8 @@
 			$('#table-header').show().next().hide();
 		}
 		
-		function addSubMenu(id){
-			
+		function addSubmenu(){
+			$('form#addSubmenu').submit();
 		}
 		
 	</script>

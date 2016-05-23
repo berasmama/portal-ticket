@@ -1,5 +1,6 @@
 <?php
 
+   session_start();
 class dataUpdate{
 	private $db;
 	
@@ -8,13 +9,23 @@ class dataUpdate{
 	}
 	
 	public function updateRecord($tb, $val, $id){
-		$stmt = $this->db->prepare("UPDATE $tb
-									SET
-									$val
-									WHERE id = $id; ");
-		$stmt->execute();
-		$count = $stmt->rowCount();
-		return "$count row(s) affected.";
+		try{
+			$stmt = $this->db->prepare("UPDATE $tb
+										SET
+										$val
+										WHERE id = $id; ");
+			$count = $stmt->rowCount();
+			$stmt->execute();
+			$_SESSION['notification'] = "<div class='alert alert-success fade in'>
+										  <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+										  Data Updated Succesfully.
+										</div>";
+		}catch(PDOException $e){
+			$_SESSION['notification'] = "<div class='alert alert-danger fade in'>
+									  <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+									  ".$e->getMessage()."
+									</div>";
+		}
 	}
 }
 ?>
