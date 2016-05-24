@@ -29,16 +29,16 @@
             <div class="nav-wrapper">
             <a href="#" id="logo-container" class="brand-logo">BSM Template</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#intro">Home</a></li>
-                    <li><a href="#work">Booking</a></li>
-                    <li><a href="#team">Confirmation</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#booking">Booking</a></li>
+                    <li><a href="#confirmation">Confirmation</a></li>
                     <li><a href="#contact">Contact</a></li>
         
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="#intro">Home</a></li>
-                    <li><a href="#work">Booking</a></li>
-                    <li><a href="#team">Confirmation</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#booking">Booking</a></li>
+                    <li><a href="#confirmation">Confirmation</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
@@ -61,8 +61,8 @@
     </div>
 </div>
 
-<!--Intro and service-->
-<div id="intro" class="section scrollspy">
+<!--home and service-->
+<div id="home" class="section scrollspy">
     <div class="container">
         <div class="row">
             <div  class="col s12">
@@ -85,25 +85,25 @@ Ekor burung hantu umumnya pendek, namun sayapnya besar dan lebar. Rentang sayapn
     </div>
 </div>
 
-<!--Work-->
-<div class="section scrollspy" id="work" style="min-height:632px;max-height:864px;position:relative;">
+<!--booking-->
+<div class="section scrollspy" id="booking" style="min-height:632px;max-height:864px;position:relative;background-color:#D9D9D9">
     <div class="container">
         <div class="row">
             <div  class="col s12">
                 <h1 style="text-align:center">
                 Booking
                 </h1>
-                 <form class="col s12">
+                 <form class="col s12" action="transaction.php" method="post">
 				<div class="input-field col s12">
-          <input id="last_name" type="text" class="validate">
+          <input id="last_name" name="name" type="text" class="validate">
           <label for="last_name">Name</label>
         </div>
         <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
+          <input id="email" name="email" type="email" class="validate">
           <label for="email" data-error="wrong" data-success="right">Email</label>
         </div>
        <div class="input-field col s8">
-    <select>
+    <select name="kat">
       <option value="1">Option 1</option>
       <option value="2">Option 2</option>
       <option value="3">Option 3</option>
@@ -111,11 +111,11 @@ Ekor burung hantu umumnya pendek, namun sayapnya besar dan lebar. Rentang sayapn
     <label>Select Ticket</label>
   </div>
 <div class="input-field col s4">
-          <input id="jumlah" type="text" class="validate">
+          <input id="jumlah" name="jumlah" type="number" class="validate">
           <label for="jumlah">Amount</label>
         </div>
         <div class="input-field col s12">
-         <button class="btn waves-effect waves-light" type="submit" name="action">Submit<i class="large material-icons">send</i>
+         <button class="btn waves-effect waves-light" type="submit" name="submit_booking">Submit<i class="large material-icons">send</i>
   </button>
   </div>
   </form>
@@ -125,7 +125,7 @@ Ekor burung hantu umumnya pendek, namun sayapnya besar dan lebar. Rentang sayapn
 </div>
 
 <!--Confrim-->
-<div id="team" class="section scrollspy" style="background-color:white;min-height:632px;max-height:864px;position:relative;">
+<div id="confirmation" class="section scrollspy" style="background-color:white;min-height:632px;max-height:864px;position:relative;">
     <div class="container" >
         <div class="row" >
             <div  class="col s12">
@@ -136,6 +136,17 @@ Ekor burung hantu umumnya pendek, namun sayapnya besar dan lebar. Rentang sayapn
 				<div class="input-field col s12">
           <input id="last_name" type="text" class="validate">
           <label for="last_name">Booking Code</label>
+        </div>
+        <div class="input-field col s12">
+        <div class="file-field input-field">
+      <div class="btn">
+        <span>File</span>
+        <input type="file">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
         </div>
         <div class="input-field col s12">
         <a class="waves-effect waves-light btn modal-trigger" href="#modal1">
@@ -185,22 +196,22 @@ Ekor burung hantu umumnya pendek, namun sayapnya besar dan lebar. Rentang sayapn
                 <h5 class="white-text">Social</h5>
                 <ul>
                     <li>
-                        <a class="white-text" href="https://www.behance.net/joashp">
+                        <a class="white-text" href="https://www.facebook.com/officialBSM48/?fref=ts">
                             <i class="small fa fa-behance-square white-text"></i> Behance
                         </a>
                     </li>
                     <li>
-                        <a class="white-text" href="https://www.facebook.com/joash.c.pereira">
+                        <a class="white-text" href="https://www.facebook.com/officialBSM48/?fref=ts">
                             <i class="small fa fa-facebook-square white-text"></i> Facebook
                         </a>
                     </li>
                     <li>
-                        <a class="white-text" href="https://github.com/joashp">
+                        <a class="white-text" href="https://www.facebook.com/officialBSM48/?fref=ts">
                             <i class="small fa fa-github-square white-text"></i> Github
                         </a>
                     </li>
                     <li>
-                        <a class="white-text" href="https://www.linkedin.com/in/joashp">
+                        <a class="white-text" href="https://www.facebook.com/officialBSM48/?fref=ts">
                             <i class="small fa fa-linkedin-square white-text"></i> Linkedin
                         </a>
                     </li>
@@ -210,7 +221,7 @@ Ekor burung hantu umumnya pendek, namun sayapnya besar dan lebar. Rentang sayapn
     </div>
     <div class="footer-copyright default_color">
         <div class="container">
-            Made by <a class="white-text" href="http://joashpereira.com">BSM Developer Team</a>. Thanks to <a class="white-text" href="http://materializecss.com/">materializecss</a>
+            Made by <a class="white-text" href="https://www.facebook.com/officialBSM48/?fref=ts">BSM Developer confirmation</a>. Thanks to <a class="white-text" href="http://materializecss.com/">materializecss</a>
         </div>
     </div>
 </footer>
