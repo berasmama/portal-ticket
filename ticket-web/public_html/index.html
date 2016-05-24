@@ -104,9 +104,9 @@ Ekor burung hantu umumnya pendek, namun sayapnya besar dan lebar. Rentang sayapn
         </div>
        <div class="input-field col s8">
     <select name="kat">
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
+      <option value="1">Bronze</option>
+      <option value="2">Silver</option>
+      <option value="3">Gold</option>
     </select>
     <label>Select Ticket</label>
   </div>
@@ -115,7 +115,7 @@ Ekor burung hantu umumnya pendek, namun sayapnya besar dan lebar. Rentang sayapn
           <label for="jumlah">Amount</label>
         </div>
         <div class="input-field col s12">
-         <button class="btn waves-effect waves-light" type="submit" name="submit_booking">Submit<i class="large material-icons">send</i>
+         <button class="btn waves-effect waves-light" type="submit" name="submit_booking">Submit <i class="large material-icons">send</i>
   </button>
   </div>
   </form>
@@ -132,16 +132,16 @@ Ekor burung hantu umumnya pendek, namun sayapnya besar dan lebar. Rentang sayapn
                 <h1>
                 Confirm
                 </h1>
-                <form class="col s12">
+                <form class="col s12" action="transaction.php" method="post" enctype="multipart/form-data">
 				<div class="input-field col s12">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Booking Code</label>
+          <input id="last_name" type="text" class="validate" name="kode_booking">
+          <label for="kode_booking">Booking Code</label>
         </div>
         <div class="input-field col s12">
         <div class="file-field input-field">
       <div class="btn">
         <span>File</span>
-        <input type="file">
+        <input name="file" type="file">
       </div>
       <div class="file-path-wrapper">
         <input class="file-path validate" type="text">
@@ -149,10 +149,8 @@ Ekor burung hantu umumnya pendek, namun sayapnya besar dan lebar. Rentang sayapn
     </div>
         </div>
         <div class="input-field col s12">
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">
-         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-         <i class="large material-icons">send</i>
-  </button></a>
+       <button class="btn waves-effect waves-light" type="submit" name="submit_confirm">Submit <i class="large material-icons">send</i>
+  </button>
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
     <div class="modal-content">

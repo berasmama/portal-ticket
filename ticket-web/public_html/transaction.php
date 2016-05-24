@@ -3,10 +3,10 @@
 <?php
 include "dbconfig.php";
 if(isset($_POST['submit_booking'])){
-	echo $nama = $_POST['name'];
-	echo $email = $_POST['email'];
-	echo $kat = $_POST['kat'];
-	echo $jumlah = $_POST['jumlah'];
+	 $nama = $_POST['name'];
+	 $email = $_POST['email'];
+	 $kat = $_POST['kat'];
+	 $jumlah = $_POST['jumlah'];
 	
 	
 $text = 'abcdefghijklmnopqrstuvwxyz123457890';
@@ -16,20 +16,17 @@ $kode = '';
 for($i=1; $i<=$panj; $i++){
  $kode .= $text[rand(0, $txtl)];
 }
-echo $kode;
 
 	
 	$query = "INSERT INTO tbl_transaksi values('','$kode','$nama','$email','$kat','$jumlah','','book')";
 	mysql_query($query);
-	echo 'oke';
-}else{
 	?>
-	 <div class="row">
+	<div class="row">
         <div class="col offset-l3 l6 s12">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-              <span class="card-title">Information</span>
-              <p>Terima kasih telah memesan tiket. Setelah melakukan pembayaran jangan lupa untuk melakukan konfirmasi.</p>
+              <span class="card-title">Terima kasih telah memesan tiket.</span>
+              <p> Kode booking ada adalah <?php  echo $kode;?>.Setelah melakukan pembayaran jangan lupa untuk melakukan konfirmasi.</p>
             </div>
             <div class="card-action">
               <a href="index.html">OKE!</a>
@@ -38,6 +35,34 @@ echo $kode;
           </div>
         </div>
       </div>
+      <?php
+}else if(isset($_POST['submit_confirm'])){
+	$kode_booking = $_POST['kode_booking'];
+	$fileName = $_FILES['file']['name'];
+	
+	move_uploaded_file($_FILES['file']['tmp_name'], "img/confirmation/".$_FILES['file']['name']);
+	
+	$query2 = "UPDATE tbl_transaksi SET foto_konfirm = '$fileName' , status ='confirm' WHERE kode_booking = '$kode_booking' ";
+	mysql_query($query2);
+	?>
+    <div class="row">
+        <div class="col offset-l3 l6 s12">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Terima kasih telah melakukan konfirmasi.</span>
+              <p> Kode booking ada adalah <?php  echo $kode;?> telah terkonfirmasi.</p>
+            </div>
+            <div class="card-action">
+              <a href="index.html">OKE!</a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    <?php
+}else{
+	?>
+	 <h1>Gagal</h1>
   <?php
 }
 ?>
