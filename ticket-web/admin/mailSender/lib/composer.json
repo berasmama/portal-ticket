@@ -1,0 +1,34 @@
+{
+    "name": "phpmailer/phpmailer",
+    "type": "library",
+    "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
+    "authors": [
+        {
+            "name": "Ahlul Esasjana",
+            "email": "cakahlul@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.0.0"
+    },
+    "require-dev": {
+        "phpdocumentor/phpdocumentor": "*",
+        "phpunit/phpunit": "4.7.*"
+    },
+    "suggest": {
+        "league/oauth2-google": "Needed for Google XOAUTH2 authentication"
+    },
+    "autoload": {
+        "classmap": [
+            "class.phpmailer.php",
+            "class.phpmaileroauth.php",
+            "class.phpmaileroauthgoogle.php",
+            "class.smtp.php",
+            "class.pop3.php",
+            "extras/EasyPeasyICS.php",
+            "extras/ntlm_sasl_client.php"
+        ]
+    },
+    "license": "LGPL-2.1"
+    "phpmailer/phpmailer": "~5.2"
+}
