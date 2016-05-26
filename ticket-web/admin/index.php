@@ -32,10 +32,9 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-
               <div class="row">
                   <div class="col-lg-9 main-chart">
-                  
+                  <?php if(!empty($_SESSION['notification'])){ echo $_SESSION['notification']; $_SESSION['notification'] = ''; } ?>
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
                   </div><!-- /col-lg-3 -->
               </div><!--/row -->

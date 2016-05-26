@@ -1,15 +1,16 @@
 <?php
    session_start();
    
-   if ((isset($_SESSION['login']) && $_SESSION['login'] != null)) {
-			header ("Location: ../index.php");
-   }
    include 'dbconfig.php';
    
    if($_SERVER["REQUEST_METHOD"] == "POST") {
-      if(!empty($_POST['email'])){
-		  echo "<script>alert('Send E-Mail!');";
-	  }else{
+    if ($_SESSION['login'] != null) {
+			$_SESSION['notification'] = "<div class='alert alert-warning fade in'>
+										<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+										You already logged in with username \"".$_SESSION['username']."\", Logout first if you want to use another account.
+									   </div>";
+			header ("Location: ../index.php");
+	}else{
 		  $myusername = $_POST['username'];
 		  $mypassword = $_POST['password'];
 		  
@@ -26,9 +27,12 @@
 			 }
 			 header("location: ../index.php");
 		  }else {
-			 $error = "Your Username or Password is Invalid.";	
+			 $_SESSION['notification'] = "<div class='alert alert-danger fade in'>
+						<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+						Your Username or Password is Invalid.
+					   </div>";
+			 
 			 header("location: ../login.php");
-			 $_SESSION['error']=$error;
 		 }
 	}
    }

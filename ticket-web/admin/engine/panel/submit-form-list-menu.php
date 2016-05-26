@@ -35,13 +35,8 @@
 		}
 		
 		if($_POST['type']=='delete'){
-			if($_POST['field']=='menu'){
-				$create->insertMenu($_POST['title'], $_POST['icon'], $_POST['href']);
-				
-			}else{
-				$create->insertSubmenu($_POST['parent'], $_POST['title'], $_POST['icon'], $_POST['href']);
-							
-			}
+			
+			$delete->deleteRecord("navbar_".$_POST['field'], "id", $_POST['id']);
 			
 			header('location: ../../list-menu.php');
 		}

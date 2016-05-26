@@ -10,7 +10,7 @@ class dataCreate{
 	public function insertSubmenu($parent, $title, $icon, $href){
 		try{
 		$stmt = $this->db->prepare("INSERT INTO navbar_submenu (id_parent, title, icon, href) 
-									VALUES (".$parent.", '".$title."', '".$icon."', '".$href."')");
+									VALUES ($parent, '$title', '$icon', '$href')");
 		$stmt->execute();
 		$_SESSION['notification'] = "<div class='alert alert-success fade in'>
 									  <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
@@ -27,7 +27,7 @@ class dataCreate{
 	public function insertMenu($title, $icon, $href){
 		try{
 		$stmt = $this->db->prepare("INSERT INTO navbar_menu (title, icon, href) 
-									VALUES ('".$title."', '".$icon."', '".$href."')");
+									VALUES ('$title', '$icon', '$href')");
 		$stmt->execute();
 		$_SESSION['notification'] = "<div class='alert alert-success fade in'>
 									  <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>

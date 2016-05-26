@@ -66,7 +66,7 @@
 						<table class="table tree">
 							<thead>
 								<tr id="table-header">
-									<th><button class='btn btn-default btn-xs' style="border-top:2px solid #ddd;" onclick='addRecord()'><i class='fa fa-plus'></i></button></th>
+									<th><button class='btn btn-default btn-xs' onclick='addRecord()'><i class='fa fa-plus'></i></button></th>
 									<th>#</th>
 									<th>Title</th>
 									<th>Icon</th>
@@ -91,7 +91,7 @@
 								foreach($listmenu as $data){
 									$listsub = $select->getChild('navbar_submenu','navbar_menu','id_parent','id',$data['id']);
 									if(count($listsub)==0){
-										$btnDelete = "<button class='btn btn-danger btn-xs' onclick='deleteMenu('menu', ".$data['id'].", 'delete')'><i class='fa fa-trash-o'></i></button>";
+										$btnDelete = "<button class='btn btn-danger btn-xs' onclick=\"deleteMenu('menu', ".$data['id'].", 'delete')\"><i class='fa fa-trash-o'></i></button>";
 									}else{
 										$btnDelete = "<div class='btn btn-danger btn-xs btn-disabled tooltips' data-placement='top' data-original-title='Cant Delete, This Menu has sub'><i class='fa fa-trash-o'></i></div>";
 									}
@@ -131,7 +131,7 @@
 											
 											<td id='submenu".$data['id']."-action'>
 											  <button class='btn btn-primary btn-xs' onclick='editSubMenu(".$data['id'].")'><i class='fa fa-pencil'></i></button>
-											  <button class='btn btn-danger btn-xs' onclick='deleteSubMenu(".$data['id'].")'><i class='fa fa-trash-o'></i></button>
+											  <button class='btn btn-danger btn-xs' onclick=\"deleteSubmenu('submenu', ".$data['id'].", 'delete')\"><i class='fa fa-trash-o'></i></button>
 											</td>
 											<td id='submenu".$data['id']."-action-edit' hidden>
 											  <button class='btn btn-success btn-xs' onclick=";?>"submitForm('submenu','edit',<?php echo $data['id'] ?>)"<?php echo "><i class='fa fa-check'></i></button>
@@ -185,13 +185,35 @@
 		});
 		
 		function deleteMenu(field, id, type){
-			document.getElementById("txt-menu-id-input").value = id;
-			document.getElementById("txt-menu-title-input").value = document.getElementById("txt-"+field+id+"-title").value;
-			document.getElementById("txt-menu-icon-input").value = document.getElementById("txt-"+field+id+"-icon").value;
-			document.getElementById("txt-menu-href-input").value = document.getElementById("txt-"+field+id+"-href").value;
-			document.getElementById("txt-menu-field-input").value = field;
-			document.getElementById("txt-menu-type-input").value = type;
-			$('form#submit-input-form').submit();
+			var conf = confirm("Are You Sure ?");
+			
+			if (conf == true) {
+				document.getElementById("txt-menu-id-input").value = id;
+				document.getElementById("txt-menu-title-input").value = document.getElementById("txt-"+field+id+"-title").value;
+				document.getElementById("txt-menu-icon-input").value = document.getElementById("txt-"+field+id+"-icon").value;
+				document.getElementById("txt-menu-href-input").value = document.getElementById("txt-"+field+id+"-href").value;
+				document.getElementById("txt-menu-field-input").value = field;
+				document.getElementById("txt-menu-type-input").value = type;
+				$('form#submit-input-form').submit();
+			} else {
+				return null;
+			}
+		}
+		
+		function deleteSubmenu(field, id, type){
+			var conf = confirm("Are You Sure ?");
+			
+			if (conf == true) {
+				document.getElementById("txt-menu-id-input").value = id;
+				document.getElementById("txt-menu-title-input").value = document.getElementById("txt-"+field+id+"-title").value;
+				document.getElementById("txt-menu-icon-input").value = document.getElementById("txt-"+field+id+"-icon").value;
+				document.getElementById("txt-menu-href-input").value = document.getElementById("txt-"+field+id+"-href").value;
+				document.getElementById("txt-menu-field-input").value = field;
+				document.getElementById("txt-menu-type-input").value = type;
+				$('form#submit-input-form').submit();
+			} else {
+				return null;
+			}
 		}
 		
 		function submitForm(field, type, id){
