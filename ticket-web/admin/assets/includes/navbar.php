@@ -190,6 +190,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
 				<?php
+				/*
 					$usermenu = $select->getChild('user_menu','user','id_user','id',$_SESSION['id_user']);
 					foreach($usermenu as $data){
 						
@@ -219,7 +220,22 @@
 						}
 						echo "</li>";
 					}
+					*/
+					
 				?>
+                <li class='sub-menu'>
+                <a href="?id=1">
+                	<i class='fa fa-check-square'></i>
+                    <span>Konfirmasi</span>
+                    </a>
+                </li>
+                <li class='sub-menu'>
+                <a href="?id=2">
+                	<i class='fa fa-folder-o'></i>
+                    <span>Rekap Data</span>
+                    </a>
+                </li>
+                
               </ul>
               <!-- sidebar menu end-->
           </div>

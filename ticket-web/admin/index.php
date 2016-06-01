@@ -33,10 +33,14 @@
       <section id="main-content">
           <section class="wrapper">
               <div class="row">
-                  <div class="col-lg-9 main-chart">
-                  <?php if(!empty($_SESSION['notification'])){ echo $_SESSION['notification']; $_SESSION['notification'] = ''; } ?>
-                  </div><!-- /col-lg-9 END SECTION MIDDLE -->
-                  </div><!-- /col-lg-3 -->
+                  <div class="col-lg-12">
+                  <?php
+				  	if($_GET['id'] = 1){
+						include('konfirmasi.php');
+					}
+				  ?>
+                  </div><!--/col-lg-12 -->
+                  
               </div><!--/row -->
           </section>
       </section>

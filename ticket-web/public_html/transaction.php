@@ -1,13 +1,16 @@
     <link href="min/plugin-min.css" type="text/css" rel="stylesheet">
     <link href="min/custom-min.css" type="text/css" rel="stylesheet" >
+    
 <?php
+
 include "dbconfig.php";
 if(isset($_POST['submit_booking'])){
 	 $nama = $_POST['name'];
 	 $email = $_POST['email'];
 	 $kat = $_POST['kat'];
 	 $jumlah = $_POST['jumlah'];
-	
+	 $bulan = date('F');
+	 $tahun = date('Y');
 	
 $text = 'abcdefghijklmnopqrstuvwxyz123457890';
 $panj = 10;
@@ -18,7 +21,7 @@ for($i=1; $i<=$panj; $i++){
 }
 
 	
-	$query = "INSERT INTO tbl_transaksi values('','$kode','$nama','$email','$kat','$jumlah','','book')";
+	$query = "INSERT INTO tbl_transaksi values('','$kode','$nama','$email','$kat','$jumlah','$bulan','$tahun','','book')";
 	mysql_query($query);
 	?>
 	<div class="row">
@@ -50,7 +53,7 @@ for($i=1; $i<=$panj; $i++){
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
               <span class="card-title">Terima kasih telah melakukan konfirmasi.</span>
-              <p> Kode booking ada adalah <?php  echo $kode;?> telah terkonfirmasi.</p>
+              <p> Kode booking ada adalah <i><?php  echo $kode_booking;?> </i>telah terkonfirmasi.</p>
             </div>
             <div class="card-action">
               <a href="index.html">OKE!</a>
@@ -61,6 +64,7 @@ for($i=1; $i<=$panj; $i++){
       </div>
     <?php
 }else{
+	
 	?>
 	 <h1>Gagal</h1>
   <?php
