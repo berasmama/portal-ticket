@@ -5,6 +5,9 @@ include('engine/dbconfig.php');
 <?php
 $query = "SELECT * FROM tbl_transaksi WHERE status ='confirm'"; //You don't need a ; like you do in SQL
 $result = mysql_query($query);
+if($result === FALSE) { 
+    die(mysql_error()); // TODO: better error handling
+}
 ?>
 <table class="table .table-striped .table-responsive">
     <tr>

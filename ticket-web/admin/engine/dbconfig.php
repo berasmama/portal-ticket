@@ -1,5 +1,6 @@
-<?
-        $host="localhost";  //diisi nama host apache
+<?php
+
+$host="localhost";  //diisi nama host apache
         $user="root";       //diisi username apache, default root
         $db="bsm";   //nama database yang anda buat
  
@@ -11,4 +12,15 @@
         } else {
             echo "Koneksi Gagal";
         }
+/*
+include 'create-class.php';
+include 'read-class.php';
+include 'update-class.php';
+include 'delete-class.php';
+
+$create = new dataCreate($DB_con);
+$select = new dataRead($DB_con);
+$update = new dataUpdate($DB_con);
+$delete = new dataDelete($DB_con);
+*/
 ?>

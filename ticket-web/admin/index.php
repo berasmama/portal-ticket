@@ -35,8 +35,17 @@
               <div class="row">
                   <div class="col-lg-12">
                   <?php
-				  	if($_GET['id'] = 1){
+				  if(isset($_GET['id'])){
+					  $id = $_GET['id'];
+				  }else{
+					$id = 0;  
+				  }
+				  	if($id == 1){
 						include('konfirmasi.php');
+					}else if($id == 2){
+						include('rekapdata.php');
+					}else{
+					echo "<h1>Welcome</h1>";	
 					}
 				  ?>
                   </div><!--/col-lg-12 -->
