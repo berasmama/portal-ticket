@@ -14,6 +14,7 @@
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
+                <?php /*
                 <ul class="nav top-menu">
                     <!-- tasks start -->
                     <li class="dropdown">
@@ -151,21 +152,22 @@
                     <!-- inbox dropdown end -->
                 </ul>
                 <!--  notification end -->
+				
+				*/ ?>
             </div>
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
+                <!--
 					<li class="profile-photo-navbar">
 					<div class="tooltips" data-placement="bottom" data-original-title="<?php if(empty($_SESSION['login_user'])){$_SESSION['login_user']='default';} echo 'Hi, '.$_SESSION['login_user']; ?>">
 						<img src="assets/img/profile/<?php if(empty($_SESSION['username'])){$_SESSION['username']='default';}echo $_SESSION['username']; ?>.jpg" height="35px">
 					</div>
-					</li>
+					</li> -->
 					<li>
 						<div class="dropdown" style="margin-top:13px;">
 							<button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
 							<span class="caret"></span></button>
 							<ul class="dropdown-menu" style="margin-left:-125px;">
-							  <li><a href="#">User Preference</a></li>
-							  <li role="presentation" class="divider"></li>
 							  <li><a href="login.php">Logout</a></li>
 							</ul>
 						</div>

@@ -55,11 +55,14 @@ if(isset($_POST['search'])){
 	$status = $_POST['status'];
 	$query = "SELECT * FROM tbl_transaksi WHERE bulan='$bulan' AND tahun = '$tahun' AND status='$status'";
 }else{
-	$query = "SELECT * FROM tbl_transaksi";
+	$query = "SELECT * FROM tbl_transaksi ORDER BY id_trans DESC";
 }
 $result = mysql_query($query);
 if($result === FALSE) { 
     die(mysql_error()); // TODO: better error handling
+}
+if (mysql_num_rows($result) == 0 ){
+	echo "Data tidak ditemukan";
 }
 while($row = mysql_fetch_array($result)){
 	?>
@@ -77,7 +80,6 @@ while($row = mysql_fetch_array($result)){
 }
 ?>
 </table>
-
 <?php
 if(isset($_GET['paid'])){
 	$kode_paid = $_GET['paid'];
