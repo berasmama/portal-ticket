@@ -56,19 +56,15 @@ if ((($_FILES["file"]["type"] == "application/pdf")
     {
     echo "<script>alert('Error: " . $_FILES["file"]["error"] ."')</script>";
     }
-  else
-    {
-        $d='upload/';
-        $de=$d . basename($_FILES['file']['name']);
-    move_uploaded_file($_FILES["file"]["tmp_name"], $de);
-$fileName = $_FILES['file']['name'];
-    $filePath = $_FILES['file']['tmp_name'];
+//  else
+//    {
+//        $d='upload/';
+//        $de=$d . basename($_FILES['file']['name']);
+//    move_uploaded_file($_FILES["file"]["tmp_name"], $de);
+//$fileName = $_FILES['file']['name'];
+//    $filePath = $_FILES['file']['tmp_name'];
      //add only if the file is an upload
-     }
-  }
-else
-  {
-  echo "<script>alert('Invalid file')</script>";
+//     }
   }
 
 // email headers
@@ -83,7 +79,7 @@ $mail->IsSMTP();
 // 0 = off (production only)
 // 1 = client messages
 // 2 = client and server messages
-$mail->SMTPDebug  = 0;
+$mail->SMTPDebug  = 1;
 //Output debug SMTPDebug
 $mail->Debugoutput = 'html';
 //Hostname of the mail server
@@ -113,12 +109,13 @@ $mail->Body = ($email_message);
 //Replace the plain text body with one created manually
 $mail->AltBody = 'This is a plain-text message body';
 //Attach an image file
-$mail->addAttachment($_FILES['file']['tmp_name'], $_FILES['file']['name']);
+//$mail->AddAttachment($_FILES['file']['tmp_name'], $_FILES['file']['name']);
+$mail->AddAttachment($_FILES['file']['tmp_name'], $_FILES['file']['name']);
 //Send the message, check with alert
 if(!$mail->Send()) {
   echo "<script>alert('Mailer Error: " . $mail->ErrorInfo."')</script>";
 } else {
-  echo "<script>alert('Your request has been submitted. We will contact you soon.')</script>";
+  echo "<script>alert('Sending email to ". $email_to." success!')</script>";
 }
 }
 ?>
