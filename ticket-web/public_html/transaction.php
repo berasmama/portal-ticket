@@ -2,8 +2,7 @@
     <link href="min/custom-min.css" type="text/css" rel="stylesheet" >
     
 <?php
-
-include "dbconfig.php";
+include 'dbconfig.php';
 if(isset($_POST['submit_booking'])){
 	 $nama = $_POST['name'];
 	 $email = $_POST['email'];
@@ -21,15 +20,28 @@ for($i=1; $i<=$panj; $i++){
 }
 
 	
-	$query = "INSERT INTO tbl_transaksi values('','$kode','$nama','$email','$kat','$jumlah','$bulan','$tahun','','book')";
+$query = "INSERT INTO tbl_transaksi values('','$kode','$nama','$email','$kat','$jumlah','$bulan','$tahun','','book')";
 	mysql_query($query);
+//Configuration for email Body and Send email
+	require_once('emailSender.php');
+	$categ='';
+	if($kat==1){
+		$categ='Bronze';
+	}else if($kat==2){
+		$categ='Silver';
+	}else{
+		$categ='Gold';
+	}
+	$totalCateg = 'kategori '."<b>".$categ ."</b>".' sejumlah '."<b>". $jumlah ."</b>".' tiket.';
+	sendEmail($email,$nama,$kode,$totalCateg);
+//End Configuration for email Body and Send email
 	?>
 	<div class="row">
         <div class="col offset-l3 l6 s12">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
               <span class="card-title">Terima kasih telah memesan tiket.</span>
-              <p> Kode booking ada adalah <?php  echo $kode;?>.Setelah melakukan pembayaran jangan lupa untuk melakukan konfirmasi.</p>
+              <p> Kode booking telah kami kirim melalui email ke alamat <?php  echo $email;?>. Apabila dalam waktu 2 Jam anda belum menerima email, hubungi Administrator.</p>
             </div>
             <div class="card-action">
               <a href="index.html">OKE!</a>

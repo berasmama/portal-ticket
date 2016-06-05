@@ -87,14 +87,14 @@
                 <h1 style="text-align:center">
                 Booking
                 </h1>
-                 <form class="col s12" action="transaction.php" method="post">
+                 <form class="col s12" action="transaction.php" method="post" autocomplete="off">
 				<div class="input-field col s12">
           <input id="last_name" name="name" type="text" class="validate">
           <label for="last_name">Name</label>
         </div>
         <div class="input-field col s12">
           <input id="email" name="email" type="email" class="validate">
-          <label for="email" data-error="wrong" data-success="right">Email</label>
+          <label for="email" data-error="wrong" data-success="">Email</label>
         </div>
        <div class="input-field col s8">
     <select name="kat">
@@ -126,7 +126,7 @@
                 <h1>
                 Confirm
                 </h1>
-                <form class="col s12" action="transaction.php" method="post" enctype="multipart/form-data">
+                <form class="col s12" action="transaction.php" method="post" enctype="multipart/form-data" autocomplete="off">
 				<div class="input-field col s12">
           <input id="last_name" type="text" class="validate" name="kode_booking">
           <label for="kode_booking">Booking Code</label>
