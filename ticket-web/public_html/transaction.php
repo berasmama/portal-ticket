@@ -25,6 +25,7 @@ $query = "INSERT INTO tbl_transaksi values('','$kode','$nama','$email','$kat','$
 //Configuration for email Body and Send email
 	require_once('emailSender.php');
 	$categ='';
+	$messageMail='';
 	if($kat==1){
 		$categ='Bronze';
 	}else if($kat==2){
@@ -32,8 +33,13 @@ $query = "INSERT INTO tbl_transaksi values('','$kode','$nama','$email','$kat','$
 	}else{
 		$categ='Gold';
 	}
+	
 	$totalCateg = 'kategori '."<b>".$categ ."</b>".' sejumlah '."<b>". $jumlah ."</b>".' tiket.';
-	sendEmail($email,$nama,$kode,$totalCateg);
+	$messageMail .= "Halo ".clean_string($name).",<br>";
+	$messageMail .= "Terimakasih, anda telah memesan tiket dengan ".clean_string($totalCateg)."<br>";
+    $messageMail .= "Kode booking anda adalah "."<b>".clean_string($kode)."</b>"."<br>";
+    $messageMail .= "<b>Segera lakukan pembayaran sejumlah dan konfirmasi pembayaran anda sesuai dengan kode booking.</b>";
+	sendEmail($email,$nama,$messageMail);
 //End Configuration for email Body and Send email
 	?>
 	<div class="row">
