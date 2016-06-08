@@ -17,6 +17,7 @@ if($result === FALSE) {
         <th>Email</th>
         <th>Jenis Tiket</th>
         <th>Jumlah</th>
+        <th>Total Harga</th>
         <th>Bulan - Tahun</th>
         <th>Foto Pembayaran</th>
         <th>Konfirmasi</th>
@@ -31,6 +32,7 @@ while($row = mysql_fetch_array($result)){
         <td><?php echo $row['email']?></td>
         <td><?php echo $row['id_kat']?></td>
         <td><?php echo $row['jumlah']?></td>
+        <td><?php echo $row['harga']?></td>
         <td><?php echo $row['bulan']?> - <?php echo $row['tahun']?></td>
         <td><a href="image.php?id=<?php echo $row['foto_konfirm']?>" target="_blank"><?php echo $row['foto_konfirm']?></a></td>
         <td><a href="?paid=<?php echo $row['kode_booking']?>"><button type="button" class="btn btn-success"><i class='fa fa-check'></i></button></a></td>

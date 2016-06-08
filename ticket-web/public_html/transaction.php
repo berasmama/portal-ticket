@@ -6,6 +6,7 @@ include 'dbconfig.php';
 if(isset($_POST['submit_booking'])){
 	 $nama = $_POST['name'];
 	 $email = $_POST['email'];
+	 $harga = $_POST['harga'];
 	 $kat = $_POST['kat'];
 	 $jumlah = $_POST['jumlah'];
 	 $bulan = date('F');
@@ -20,8 +21,9 @@ for($i=1; $i<=$panj; $i++){
 }
 
 	
-$query = "INSERT INTO tbl_transaksi values('','$kode','$nama','$email','$kat','$jumlah','$bulan','$tahun','','book')";
+$query = "INSERT INTO tbl_transaksi (kode_booking, nama, email, id_kat, jumlah, harga, bulan, tahun, foto_konfirm, status)  values('$kode','$nama','$email',$kat,$jumlah,$harga,'$bulan',$tahun,'','book')";
 	mysql_query($query);
+	echo mysql_error();
 //Configuration for email Body and Send email
 	require_once('emailSender.php');
 	$categ='';
@@ -50,7 +52,7 @@ $query = "INSERT INTO tbl_transaksi values('','$kode','$nama','$email','$kat','$
               <p> Kode booking telah kami kirim melalui email ke alamat <?php  echo $email;?>. Apabila dalam waktu 2 Jam anda belum menerima email, hubungi Administrator.</p>
             </div>
             <div class="card-action">
-              <a href="index.html">OKE!</a>
+              <a href="index.php">OKE!</a>
               
             </div>
           </div>
@@ -74,7 +76,7 @@ $query = "INSERT INTO tbl_transaksi values('','$kode','$nama','$email','$kat','$
               <p> Kode booking ada adalah <i><?php  echo $kode_booking;?> </i>telah terkonfirmasi.</p>
             </div>
             <div class="card-action">
-              <a href="index.html">OKE!</a>
+              <a href="index.php">OKE!</a>
               
             </div>
           </div>

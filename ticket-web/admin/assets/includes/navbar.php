@@ -237,6 +237,12 @@
                     <span>Rekap Data</span>
                     </a>
                 </li>
+                <li class='sub-menu'>
+                <a href="?id=3">
+                	<i class='fa fa-file'></i>
+                    <span>Tiket Panel</span>
+                    </a>
+                </li>
                 
               </ul>
               <!-- sidebar menu end-->
