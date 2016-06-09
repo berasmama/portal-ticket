@@ -7,6 +7,7 @@ if(isset($_POST['submit_booking'])){
 	 $nama = $_POST['name'];
 	 $email = $_POST['email'];
 	 $kat = $_POST['kat'];
+	 $harga = $_POST['harga'];
 	 $jumlah = $_POST['jumlah'];
 	 $bulan = date('F');
 	 $tahun = date('Y');
@@ -20,11 +21,13 @@ for($i=1; $i<=$panj; $i++){
 }
 
 	
-$query = "INSERT INTO tbl_transaksi values('','$kode','$nama','$email','$kat','$jumlah','$bulan','$tahun','','book')";
+$query = "INSERT INTO tbl_transaksi (kode_booking, nama, email, id_kat, jumlah, harga, bulan, tahun, foto_konfirm, status)  values('$kode','$nama','$email',$kat,$jumlah,$harga,'$bulan',$tahun,'','book')";
 	mysql_query($query);
+	echo mysql_error();
 //Configuration for email Body and Send email
 	require_once('emailSender.php');
 	$categ='';
+	$messageMail='';
 	if($kat==1){
 		$categ='Bronze';
 	}else if($kat==2){
@@ -32,8 +35,17 @@ $query = "INSERT INTO tbl_transaksi values('','$kode','$nama','$email','$kat','$
 	}else{
 		$categ='Gold';
 	}
+	function clean_string($string) {
+      $bad = array("content-type","bcc:","to:","cc:","href");
+      return str_replace($bad,"",$string);
+    }
 	$totalCateg = 'kategori '."<b>".$categ ."</b>".' sejumlah '."<b>". $jumlah ."</b>".' tiket.';
-	sendEmail($email,$nama,$kode,$totalCateg);
+	//set mail body
+	$messageMail .= "Halo ".clean_string($nama).",<br>";
+	$messageMail .= "Terimakasih, anda telah memesan tiket dengan ".clean_string($totalCateg)."<br>";
+    $messageMail .= "Kode booking anda adalah "."<b>".clean_string($kode)."</b>"."<br>";
+    $messageMail .= "<b>Segera lakukan pembayaran sejumlah Rp ".clean_string($harga)." dan konfirmasi pembayaran anda sesuai dengan kode booking.</b>";
+	sendEmail($email,$nama,$messageMail);
 //End Configuration for email Body and Send email
 	?>
 	<div class="row">
