@@ -98,9 +98,17 @@
         </div>
        <div class="input-field col s8">
     <select name="kat">
-      <option value="1">Bronze</option>
-      <option value="2">Silver</option>
-      <option value="3">Gold</option>
+    <?php
+	include('public_html/dbconfig.php');
+	$query = "SELECT * FROM tbl_tiket";
+	$result = mysql_query($query);
+	while($row = mysql_fetch_array($result)){
+	?>
+      <option value="<?php echo $row['id'];?>"><?php echo $row['nama']." (Rp.".$row['harga'].")";?></option>
+      <?php
+	}
+	  ?>
+     
     </select>
     <label>Select Ticket</label>
   </div>
