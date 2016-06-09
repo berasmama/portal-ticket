@@ -31,7 +31,7 @@
 		            <br>
 		            <input type="password" class="form-control" placeholder="Password" name="password">
 					<br>
-		            <button class="btn btn-theme btn-block" type="submit">	LOGIN</button>
+		            <button class="btn btn-theme btn-block" type="submit" name="submit">	LOGIN</button>
 		            <hr>
 		            <div class="registration">
 		                <i><b>~ MULAT SARIRA HANGRASA WANI ~</b></i>

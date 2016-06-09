@@ -168,7 +168,7 @@
 							<button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
 							<span class="caret"></span></button>
 							<ul class="dropdown-menu" style="margin-left:-125px;">
-							  <li><a href="login.php">Logout</a></li>
+							  <li><a href="?logout=y">Logout</a></li>
 							</ul>
 						</div>
 					</li>
@@ -243,10 +243,14 @@
                     <span>Tiket Panel</span>
                     </a>
                 </li>
-                
               </ul>
               <!-- sidebar menu end-->
           </div>
       </aside>
       <!--sidebar end-->
-      
+      <?php
+	  if(isset($_GET['logout'])){
+		  session_destroy(); 
+		  header("location: login.php");
+	  }
+	  ?>

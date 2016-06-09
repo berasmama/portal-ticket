@@ -6,7 +6,7 @@
  */
 
 date_default_timezone_set('Etc/UTC');
-function sendEmail($to, $fullName, $email_message) {
+function sendEmail($to, $fullName, $codeBooking, $ticket) {
 require('lib/PHPMailerAutoload.php');
 	
 	function clean_string($string) {
@@ -18,6 +18,11 @@ require('lib/PHPMailerAutoload.php');
 	$email_name = "Portal Ticket [no-reply]";
 	$email_subject = "Bukti Pemesanan Ticket";
 	
+    $email_message = "";
+    $email_message .= "Halo ".clean_string($fullName).",<br>";
+	$email_message .= "Terimakasih, anda telah memesan tiket dengan ".clean_string($ticket)."<br>";
+    $email_message .= "Kode booking anda adalah "."<b>".clean_string($codeBooking)."</b>"."<br>";
+    $email_message .= "<b>Segera lakukan pembayaran dan konfirmasi pembayaran anda sesuai dengan kode booking.</b>";
 
 
 // email headers

@@ -6,7 +6,6 @@ include 'dbconfig.php';
 if(isset($_POST['submit_booking'])){
 	 $nama = $_POST['name'];
 	 $email = $_POST['email'];
-	 $harga = $_POST['harga'];
 	 $kat = $_POST['kat'];
 	 $jumlah = $_POST['jumlah'];
 	 $bulan = date('F');
@@ -21,13 +20,11 @@ for($i=1; $i<=$panj; $i++){
 }
 
 	
-$query = "INSERT INTO tbl_transaksi (kode_booking, nama, email, id_kat, jumlah, harga, bulan, tahun, foto_konfirm, status)  values('$kode','$nama','$email',$kat,$jumlah,$harga,'$bulan',$tahun,'','book')";
+$query = "INSERT INTO tbl_transaksi values('','$kode','$nama','$email','$kat','$jumlah','$bulan','$tahun','','book')";
 	mysql_query($query);
-	echo mysql_error();
 //Configuration for email Body and Send email
 	require_once('emailSender.php');
 	$categ='';
-	$messageMail='';
 	if($kat==1){
 		$categ='Bronze';
 	}else if($kat==2){
@@ -35,13 +32,8 @@ $query = "INSERT INTO tbl_transaksi (kode_booking, nama, email, id_kat, jumlah, 
 	}else{
 		$categ='Gold';
 	}
-	
 	$totalCateg = 'kategori '."<b>".$categ ."</b>".' sejumlah '."<b>". $jumlah ."</b>".' tiket.';
-	$messageMail .= "Halo ".clean_string($name).",<br>";
-	$messageMail .= "Terimakasih, anda telah memesan tiket dengan ".clean_string($totalCateg)."<br>";
-    $messageMail .= "Kode booking anda adalah "."<b>".clean_string($kode)."</b>"."<br>";
-    $messageMail .= "<b>Segera lakukan pembayaran sejumlah dan konfirmasi pembayaran anda sesuai dengan kode booking.</b>";
-	sendEmail($email,$nama,$messageMail);
+	sendEmail($email,$nama,$kode,$totalCateg);
 //End Configuration for email Body and Send email
 	?>
 	<div class="row">
@@ -52,7 +44,7 @@ $query = "INSERT INTO tbl_transaksi (kode_booking, nama, email, id_kat, jumlah, 
               <p> Kode booking telah kami kirim melalui email ke alamat <?php  echo $email;?>. Apabila dalam waktu 2 Jam anda belum menerima email, hubungi Administrator.</p>
             </div>
             <div class="card-action">
-              <a href="index.php">OKE!</a>
+              <a href="../index.html">OKE!</a>
               
             </div>
           </div>
@@ -76,7 +68,7 @@ $query = "INSERT INTO tbl_transaksi (kode_booking, nama, email, id_kat, jumlah, 
               <p> Kode booking ada adalah <i><?php  echo $kode_booking;?> </i>telah terkonfirmasi.</p>
             </div>
             <div class="card-action">
-              <a href="index.php">OKE!</a>
+              <a href="../index.html">OKE!</a>
               
             </div>
           </div>

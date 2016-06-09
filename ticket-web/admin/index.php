@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+session_start();
+if(isset($_SESSION['user'])){
+?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -11,7 +14,6 @@
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <link href="assets/css/animate.css" rel="stylesheet">
     <!--external css-->
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     
@@ -25,24 +27,15 @@
 
   <section id="container" >
       
-	  <?php
-		session_start();
-		
-		include 'assets/includes/navbar.php';
-		
-		if(isset($_SESSION['notification'])){
-			echo $_SESSION['notification'];
-			$_SESSION['notification'] = "";
-		}
-	  ?>
+	  <?php include 'assets/includes/navbar.php' ?>
 	  
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
+          <section class="wrapper">
               <div class="row">
-              <div class="wrapper">
                   <div class="col-lg-12">
                   <?php
 				  if(isset($_GET['id'])){
@@ -65,8 +58,9 @@
 					}
 				  ?>
                   </div><!--/col-lg-12 -->
-                  </div>
+                  
               </div><!--/row -->
+          </section>
       </section>
 
       <!--main content end-->
@@ -78,7 +72,6 @@
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/jquery-1.8.3.min.js"></script>
-    <script src="assets/js/jquery.validationEngine.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="assets/js/jquery.scrollTo.min.js"></script>
@@ -92,3 +85,8 @@
 	
   </body>
 </html>
+<?php
+}else{
+	header("location: login.php");	
+}
+?>

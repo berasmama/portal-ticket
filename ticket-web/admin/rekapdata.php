@@ -45,7 +45,6 @@ include('engine/dbconfig.php');
         <th>Email</th>
         <th>Jenis Tiket</th>
         <th>Jumlah</th>
-        <th>Total Harga</th>
         <th>Bulan - Tahun</th>
         
     </tr>
@@ -74,7 +73,6 @@ while($row = mysql_fetch_array($result)){
         <td><?php echo $row['email']?></td>
         <td><?php echo $row['id_kat']?></td>
         <td><?php echo $row['jumlah']?></td>
-        <td><?php echo $row['harga']?></td>
         <td><?php echo $row['bulan']?> - <?php echo $row['tahun']?></td>
         
     </tr>

@@ -2,7 +2,23 @@
    session_start();
    
    include 'dbconfig.php';
+   if(isset($_POST['submit'])){
+	   $user = $_POST['username'];
+	   $pass = $_POST['password'];
+	   $result = mysql_query("select password from user where  username = '$user'");
+   $row = mysql_fetch_assoc($result);
+	if($row['password'] == md5($pass)){
+		$_SESSION['user'] = $user;
+		 header("location: ../index.php");
+	}else{
+		header("location: ../login.php");	
+	}
+   }else{
+	echo "kosong";   
+   }
    
+   
+   /*
    if($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_SESSION['login'] != null) {
 			$_SESSION['notification'] = "<div class='alert alert-warning fade in'>
@@ -36,4 +52,6 @@
 		 }
 	}
    }
+   
+   */
 ?>
