@@ -97,27 +97,39 @@
           <label for="email" data-error="wrong" data-success="">Email</label>
         </div>
        <div class="input-field col s8">
-    <select name="kat">
-    <?php
-	include('public_html/dbconfig.php');
-	$query = "SELECT * FROM tbl_tiket";
-	$result = mysql_query($query);
-	while($row = mysql_fetch_array($result)){
-	?>
-      <option value="<?php echo $row['id'];?>"><?php echo $row['nama']." (Rp.".$row['harga'].")";?></option>
-      <?php
-	}
-	  ?>
-     
-    </select>
-    <label>Select Ticket</label>
-  </div>
+	   <select id="kat" name="kat">
+	   <?php 
+	   
+			include ('public_html/dbconfig.php');
+			$query = "SELECT * FROM tbl_tiket";
+			$result = mysql_query($query);
+			if($result === FALSE) { 
+				die(mysql_error()); // TODO: better error handling
+			}
+			while($row = mysql_fetch_array($result)){
+				echo "<option value='".$row['id']."'>".$row['nama']." - IDR ".$row['harga']."</option>";
+			}
+			
+		?>
+		</select>
+		
+		<label>Select Ticket</label>
+	</div>
 <div class="input-field col s4">
           <input id="jumlah" name="jumlah" type="number" class="validate">
           <label for="jumlah">Amount</label>
         </div>
         <div class="input-field col s12">
-         <button class="btn waves-effect waves-light" type="submit" name="submit_booking">Submit <i class="large material-icons">send</i>
+         <input id="hargaTiket" name="harga" type="hidden" class="validate">
+		 <select id="katHarga">
+		<?php
+			$result2 = mysql_query($query);
+			while($row = mysql_fetch_array($result2)){
+				echo "<option value='".$row['id']."'>".$row['harga']."</option>";
+			}
+		?>
+		</select>
+         <button class="btn waves-effect waves-light" name="submit_booking" onclick="submitFormTicket()">Submit <i class="large material-icons">send</i>
   </button>
   </div>
   </form>
@@ -237,6 +249,7 @@ CP	: 082137241242 (Ridho Aryan R)
 <script>
      $(document).ready(function() {
         $('select').material_select();
+		$("#hargaTiket").next().hide();
     });
 	
 	$('.modal-trigger').leanModal({
@@ -247,6 +260,15 @@ CP	: 082137241242 (Ridho Aryan R)
       
     }
   );
+  
+  function submitFormTicket(){
+	  var val = $("#kat").val();
+	  $('#katHarga').val(val);
+	  var harga = $("#katHarga>option:selected").text();
+	  var amount = $("input#jumlah").val();
+	  $("input#hargaTiket").val(harga*amount);
+  }
+  
   </script>
   
     </body>

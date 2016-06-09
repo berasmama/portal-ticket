@@ -56,7 +56,7 @@ $query = "INSERT INTO tbl_transaksi (kode_booking, nama, email, id_kat, jumlah, 
               <p> Kode booking telah kami kirim melalui email ke alamat <?php  echo $email;?>. Apabila dalam waktu 2 Jam anda belum menerima email, hubungi Administrator.</p>
             </div>
             <div class="card-action">
-              <a href="../index.html">OKE!</a>
+              <a href="../index.php">OKE!</a>
               
             </div>
           </div>
@@ -80,7 +80,7 @@ $query = "INSERT INTO tbl_transaksi (kode_booking, nama, email, id_kat, jumlah, 
               <p> Kode booking ada adalah <i><?php  echo $kode_booking;?> </i>telah terkonfirmasi.</p>
             </div>
             <div class="card-action">
-              <a href="../index.html">OKE!</a>
+              <a href="../index.php">OKE!</a>
               
             </div>
           </div>
