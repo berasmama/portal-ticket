@@ -228,7 +228,7 @@ Kota Bandung dan sekitarnya.</p>
           <label for="email" data-error="wrong" data-success="">Email</label>
         </div>
        <div class="input-field col s8">
-    <select name="kat">
+    <select name="kat" id="kat">
     <?php
 	include('public_html/dbconfig.php');
 	$query = "SELECT * FROM tbl_tiket";
@@ -241,6 +241,20 @@ Kota Bandung dan sekitarnya.</p>
 	  ?>
      
     </select>
+	<input id="hargaTiket" name="harga" type="hidden" class="validate">
+    <select id="katHarga" hidden>
+    <?php
+	include('public_html/dbconfig.php');
+	$query = "SELECT * FROM tbl_tiket";
+	$result = mysql_query($query);
+	while($row = mysql_fetch_array($result)){
+	?>
+      <option value="<?php echo $row['id'];?>"><?php echo $row['harga'];?></option>
+      <?php
+	}
+	  ?>
+    </select>
+	
     <label>Select Ticket</label>
   </div>
 <div class="input-field col s4">
@@ -248,7 +262,7 @@ Kota Bandung dan sekitarnya.</p>
           <label for="jumlah">Amount</label>
         </div>
         <div class="input-field col s12">
-         <button class="btn waves-effect waves-light" type="submit" name="submit_booking">Submit <i class="large material-icons">send</i>
+         <button class="btn waves-effect waves-light" type="submit" onclick="submitFormTicket()" name="submit_booking">Submit <i class="large material-icons">send</i>
   </button>
   </div>
   </form>
@@ -311,6 +325,7 @@ Kota Bandung dan sekitarnya.</p>
     <div class="container">  
     <div class="row">
     	<div class="col l12 s12">
+		<br><br>
         <img class="materialboxed responsive-img"  src="public_html/img/patners.png">
         </div>
     </div>
@@ -378,6 +393,9 @@ CP	: 082137241242 (Ridho Aryan R)
 <script>
      $(document).ready(function() {
         $('select').material_select();
+		$('.slider').slider({full_width: true});
+		
+		$('#katHarga').parent('.select-wrapper').hide();
     });
 	
 	$('.modal-trigger').leanModal({
@@ -386,11 +404,17 @@ CP	: 082137241242 (Ridho Aryan R)
       in_duration: 300, // Transition in duration
       out_duration: 200, // Transition out duration
       
-    }
-  );
-   $(document).ready(function(){
-      $('.slider').slider({full_width: true});
     });
+	
+	function submitFormTicket(){
+		var val = $("#kat").val();
+		$('#katHarga').val(val);
+		var harga = $("#katHarga>option:selected").text();
+		var amount = $("input#jumlah").val();
+		$("input#hargaTiket").val(harga*amount);
+		
+		alert(harga*amount);
+	}
   </script>
   
     </body>

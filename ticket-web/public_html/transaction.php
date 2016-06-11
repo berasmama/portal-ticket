@@ -21,8 +21,9 @@ for($i=1; $i<=$panj; $i++){
 }
 
 	
-$query = "INSERT INTO tbl_transaksi (kode_booking, nama, email, id_kat, jumlah, harga, bulan, tahun, foto_konfirm, status)  values('$kode','$nama','$email',$kat,$jumlah,$harga,'$bulan',$tahun,'','book')";
+$query = "INSERT INTO tbl_transaksi (kode_booking, nama, email, id_kat, jumlah, harga, bulan, tahun, foto_konfirm, status)  values('$kode','$nama','$email', $kat, $jumlah, $harga,'$bulan',$tahun,'','book')";
 	mysql_query($query);
+	echo $query;
 	echo mysql_error();
 //Configuration for email Body and Send email
 	require_once('emailSender.php');
