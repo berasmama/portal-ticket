@@ -8,18 +8,8 @@
 
     <!-- CSS  -->
     <link href="public_html/min/plugin-min.css" type="text/css" rel="stylesheet">
-    <link href="public_html/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link href="public_html/min/custom-min.css" type="text/css" rel="stylesheet" >
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <style>
-  .carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-      width: 70%;
-      margin: auto;
-  }
-  </style>
 </head>
 <body id="top" class="scrollspy">
 
@@ -39,15 +29,15 @@
             <div class="nav-wrapper">
             <a href="#" id="logo-container" class="brand-logo">Against AIDS</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#booking">Booking</a></li>
+                    <li><a href="#home">Event</a></li>
+                    <li><a href="#booking">Ticket</a></li>
                     <li><a href="#confirmation">Confirmation</a></li>
                     <li><a href="#contact">Contact</a></li>
         
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#booking">Booking</a></li>
+                    <li><a href="#home">Event</a></li>
+                    <li><a href="#booking">Ticket</a></li>
                     <li><a href="#confirmation">Confirmation</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -73,117 +63,151 @@
     </div>
 </div>
 
-
-<br>
 <!--home and service-->
 <div id="home" class="section scrollspy">
-
-<!--carousel-->
-<div class="container">
- <div class="row">
- <div  class="col s12">
- <h1 style="text-align:center">
-                5 Rangkaian Acara AGAINST AIDS 2016
-                </h1><br>
-  <br>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel"  style="width:260; height:145;">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-      <li data-target="#myCarousel" data-slide-to="4"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-
-      <div class="item active">
-        <img src="public_html/img/bsm.jpg" alt="Chania" width="460" height="345" class="img img-responsive">
-        <div class="carousel-caption">
-          <h3>1. ADDICTIVE</h3>
-          <p>ADDICTIVE adalah seminar nasional tahunan dari Against Aids 2016 Telkom University
-yang bertujuan untuk membahas penyebaran serta penanggulangan dari HIV/AIDS.
-Selain mengedukasi lewat seminar dengan pembicara berkompeten dari BNN, KPA, dan 
-dari LSM Rumah Cemara, ADDICTIVE juga menyuguhkan pertunjukan seni drama musikal
-yang bertemakan tentang HIV/AIDS. Dikemas secara menarik, ADDICTIVE setiap tahunnya
-mendapat respon positif dari kalangan muda KOta Bandung dan sekitarnya.</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="public_html/img/bsm.jpg" alt="Chania" width="460" height="345" class="img img-responsive">
-        <div class="carousel-caption">
-          <h3>2. Blood Donation & Charity</h3>
-          <p>Sebagai salah satu rangkaian dalam rangka memperingati hari aids sedunia yang
-bertujuan untuk membantu mereka yang membutuhkan setetes darah. Bekerjasama 
-dengan KSR dan PMI, Blood Donation secara rutin dilakukan setiap tahunnya di kawasan kampus
-Telkom University</p>
-        </div>
-      </div>
-    
-      <div class="item">
-        <img src="public_html/img/bsm.jpg" alt="Flower" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>3. EXHIBITION</h3>
-          <p>Pertandingan persahabatan basket kampus Telkom University antar fakultas yang memperebutkan
-piala bergilir, 3 pint contest dan freestyle basketball. Mengajak mahasiswa untuk berpartisipasi
-dalam kegiatan olahraga agar mencegah hal-hal negatif yang dapat menjurus ke arah penyebaran HIV/AIDS
-serta meningkatkan sportifitas antar fakultas seluruh Telkom University.
-</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="public_html/img/bsm.jpg" alt="Flower" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>4. CAMPAIGN</h3>
-          <p>Bersama mahasiswa mahasiswi Bandung melakukan kampanye anti HIV/AIDS dengan menyebarkan pamflet, menyematkan pita merah
-kepada masyarakat, orasi, dan aksi teatrikal dalam memperingati hari Aids sedunia.</p>
-        </div>
-      </div>
-      
-      <div class="item">
-        <img src="public_html/img/bsm.jpg" alt="Flower" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>5. STEROIDS</h3>
-          <p>Sebuah Charity Concert yang bertujuan untuk menyuarakan penanggulangan dan bahaya HIV/AIDS
-dengan menampilkan musisi-musisi ternama dalam negeri. Dengan diadakannya Charity Concert Steroids maka
-kampanye pencegahan HIV/AIDS akan tersampaikan dengan baik dan menarik kepada seluruh klaangan masyarakat
-Kota Bandung dan sekitarnya.</p>
-        </div>
-      </div>
-  
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-</div>
-</div>
-</div>
-
-
     <div class="container">
         <div class="row">
             <div  class="col s12">
+            <!--
                 <h1 style="text-align:center">
                 About
                 </h1><br>
 	<p class="flow-text">
     Against AIDS adalah acara tahunan dari sekumpulan mahasiswa yang mempunyai tujuan yang sama untuk melawan aids. Tujuan dari acara ini adalah untuk mengajak masyarakat untuk mengetahui dan memahami bahaya HIV/AIDS.
-    </p>
+    </p> -->
+    
+    <div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>ADDICTIVE</h3>
+          
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
+        <div class="caption left-align">
+          <h3>Blood Donation & Charity</h3>
+          
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
+        <div class="caption right-align">
+          <h3>EXHIBITION</h3>
+          
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/4"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>CAMPAIGN</h3>
+          
+        </div>
+      </li>
+      <li>
+        <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>STEROIDS</h3>
+          
+        </div>
+      </li>
+    </ul>
+  </div>
             </div>
         </div>
-    </div>    
+        <!-- img -->
+        <div class="row">
+        <div class="col l6 s12">
+        <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator responsive-img" src="http://lorempixel.com/580/250/nature/4">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">ADDICTIVE<i class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">ADDICTIVE<i class="material-icons right">close</i></span>
+      <p>ADDICTIVE adalah seminar nasional tahunan dari Against Aids 2016 Telkom University
+yang bertujuan untuk membahas penyebaran serta penanggulangan dari HIV/AIDS.
+Selain mengedukasi lewat seminar dengan pembicara berkompeten dari BNN, KPA, dan 
+dari LSM Rumah Cemara, ADDICTIVE juga menyuguhkan pertunjukan seni drama musikal
+yang bertemakan tentang HIV/AIDS. Dikemas secara menarik, ADDICTIVE setiap tahunnya
+mendapat respon positif dari kalangan muda KOta Bandung dan sekitarnya.
+</p>
+    </div>
+  </div>
+        
+        </div>
+        <div class="col l6 s12">
+        <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator responsive-img" src="http://lorempixel.com/580/250/nature/4">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Blood Donation & Charity<i class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Blood Donation & Charity<i class="material-icons right">close</i></span>
+      <p>Sebagai salah satu rangkaian dalam rangka memperingati hari aids sedunia yang
+bertujuan untuk membantu mereka yang membutuhkan setetes darah. Bekerjasama 
+dengan KSR dan PMI, Blood Donation secara rutin dilakukan setiap tahunnya di kawasan kampus
+Telkom University</p>
+    </div>
+  </div>
+        </div>
+        <div class="col l4 s12">
+       <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator responsive-img" src="http://lorempixel.com/580/250/nature/4">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">EXHIBITION<i class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">EXHIBITION<i class="material-icons right">close</i></span>
+      <p>Pertandingan persahabatan basket kampus Telkom University antar fakultas yang memperebutkan
+piala bergilir, 3 pint contest dan freestyle basketball. Mengajak mahasiswa untuk berpartisipasi
+dalam kegiatan olahraga agar mencegah hal-hal negatif yang dapat menjurus ke arah penyebaran HIV/AIDS
+serta meningkatkan sportifitas antar fakultas seluruh Telkom University.</p>
+    </div>
+  </div>
+        </div>
+        <div class="col l4 s12 ">
+       <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator responsive-img" src="http://lorempixel.com/580/250/nature/4">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">CAMPAIGN<i class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">CAMPAIGN<i class="material-icons right">close</i></span>
+      <p>Bersama mahasiswa mahasiswi Bandung melakukan kampanye anti HIV/AIDS dengan menyebarkan pamflet, menyematkan pita merah
+kepada masyarakat, orasi, dan aksi teatrikal dalam memperingati hari Aids sedunia.</p>
+    </div>
+  </div>
+        </div>
+        <div class="col l4 s12">
+        <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator responsive-img" src="http://lorempixel.com/580/250/nature/4">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">STEROIDS<i class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">STEROIDS<i class="material-icons right">close</i></span>
+      <p>Sebuah Charity Concert yang bertujuan untuk menyuarakan penanggulangan dan bahaya HIV/AIDS
+dengan menampilkan musisi-musisi ternama dalam negeri. Dengan diadakannya Charity Concert Steroids maka
+kampanye pencegahan HIV/AIDS akan tersampaikan dengan baik dan menarik kepada seluruh klaangan masyarakat
+Kota Bandung dan sekitarnya.</p>
+    </div>
+  </div>
+        </div>
+        </div>
+    </div>
 </div>
 
 <!--booking-->
@@ -204,39 +228,27 @@ Kota Bandung dan sekitarnya.</p>
           <label for="email" data-error="wrong" data-success="">Email</label>
         </div>
        <div class="input-field col s8">
-	   <select id="kat" name="kat">
-	   <?php 
-	   
-			include ('public_html/dbconfig.php');
-			$query = "SELECT * FROM tbl_tiket";
-			$result = mysql_query($query);
-			if($result === FALSE) { 
-				die(mysql_error()); // TODO: better error handling
-			}
-			while($row = mysql_fetch_array($result)){
-				echo "<option value='".$row['id']."'>".$row['nama']." - IDR ".$row['harga']."</option>";
-			}
-			
-		?>
-		</select>
-		
-		<label>Select Ticket</label>
-	</div>
+    <select name="kat">
+    <?php
+	include('public_html/dbconfig.php');
+	$query = "SELECT * FROM tbl_tiket";
+	$result = mysql_query($query);
+	while($row = mysql_fetch_array($result)){
+	?>
+      <option value="<?php echo $row['id'];?>"><?php echo $row['nama']." (Rp.".$row['harga'].")";?></option>
+      <?php
+	}
+	  ?>
+     
+    </select>
+    <label>Select Ticket</label>
+  </div>
 <div class="input-field col s4">
           <input id="jumlah" name="jumlah" type="number" class="validate">
           <label for="jumlah">Amount</label>
         </div>
         <div class="input-field col s12">
-         <input id="hargaTiket" name="harga" type="hidden" class="validate">
-		 <select id="katHarga">
-		<?php
-			$result2 = mysql_query($query);
-			while($row = mysql_fetch_array($result2)){
-				echo "<option value='".$row['id']."'>".$row['harga']."</option>";
-			}
-		?>
-		</select>
-         <button class="btn waves-effect waves-light" name="submit_booking" onclick="submitFormTicket()">Submit <i class="large material-icons">send</i>
+         <button class="btn waves-effect waves-light" type="submit" name="submit_booking">Submit <i class="large material-icons">send</i>
   </button>
   </div>
   </form>
@@ -293,10 +305,17 @@ Kota Bandung dan sekitarnya.</p>
 <div class="parallax-container">
     <div class="parallax"><img src="public_html/img/aids.png"></div>
 </div>
-<div class="parallax-container">
-    <div class="parallax"><img src="public_html/img/ads.png"></div>
-</div>
+ 
+<!--Iklan-->
 
+    <div class="container">  
+    <div class="row">
+    	<div class="col l12 s12">
+        <img class="materialboxed responsive-img"  src="public_html/img/patners.png">
+        </div>
+    </div>
+    </div>
+    
 <!--Footer-->
 <footer id="contact" class="page-footer default_color scrollspy">
     <div class="container">  
@@ -359,7 +378,6 @@ CP	: 082137241242 (Ridho Aryan R)
 <script>
      $(document).ready(function() {
         $('select').material_select();
-		$("#hargaTiket").next().hide();
     });
 	
 	$('.modal-trigger').leanModal({
@@ -370,15 +388,9 @@ CP	: 082137241242 (Ridho Aryan R)
       
     }
   );
-  
-  function submitFormTicket(){
-	  var val = $("#kat").val();
-	  $('#katHarga').val(val);
-	  var harga = $("#katHarga>option:selected").text();
-	  var amount = $("input#jumlah").val();
-	  $("input#hargaTiket").val(harga*amount);
-  }
-  
+   $(document).ready(function(){
+      $('.slider').slider({full_width: true});
+    });
   </script>
   
     </body>
