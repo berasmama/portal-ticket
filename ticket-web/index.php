@@ -412,8 +412,6 @@ CP	: 082137241242 (Ridho Aryan R)
 		var harga = $("#katHarga>option:selected").text();
 		var amount = $("input#jumlah").val();
 		$("input#hargaTiket").val(harga*amount);
-		
-		alert(harga*amount);
 	}
   </script>
   

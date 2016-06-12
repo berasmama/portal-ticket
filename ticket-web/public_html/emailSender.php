@@ -9,7 +9,7 @@ date_default_timezone_set('Etc/UTC');
 function sendEmail($to, $fullName, $email_message) {
 require('lib/PHPMailerAutoload.php');
 	
-	$email_from = "informasi.bsm@gmail.com";
+	$email_from = "ticketingaa@gmail.com";
 	$email_name = "Portal Ticket [no-reply]";
 	$email_subject = "Bukti Pemesanan Ticket";
 	
@@ -41,9 +41,9 @@ $mail->SMTPSecure = 'tls';
 //Whether to use SMTP authentication
 $mail->SMTPAuth = true;
 //Username to use for SMTP authentication (gmail account)
-$mail->Username = "informasi.bsm@gmail.com";
+$mail->Username = "ticketingaa@gmail.com";
 //Password to use for SMTP authentication
-$mail->Password = "#2Juni2012";
+$mail->Password = "bangsat20";
 //Set who the message is to be sent from
 $mail->setFrom($email_from, $email_name);
 //Set an alternative reply-to address
